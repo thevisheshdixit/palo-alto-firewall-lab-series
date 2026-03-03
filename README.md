@@ -1,82 +1,104 @@
-Palo Alto VM-Series Firewall Lab Series
-Overview
+# Palo Alto VM-Series Firewall Lab Series
 
-This repository documents hands-on laboratory implementations using the Palo Alto VM-Series Firewall (PAN-OS 11.2) deployed in a VMware Workstation environment.
+---
+
+## Overview
+
+This repository documents hands-on laboratory implementations using the **Palo Alto VM-Series Firewall (PAN-OS 11.2)** deployed in a VMware Workstation environment.
 
 The objective of this lab series is to build practical, implementation-level experience in enterprise firewall deployment and network security configuration. The labs demonstrate end-to-end setup, policy enforcement, traffic validation, and monitoring in a Layer 3 deployment model.
 
-This project reflects applied knowledge of firewall architecture, network segmentation, NAT, and security policy management.
+This project reflects applied knowledge of:
 
-Lab Environment
-Component	Details
-Firewall	Palo Alto VM-Series
-PAN-OS Version	11.2.0
-Virtualization Platform	VMware Workstation
-Client OS	Ubuntu 24.04 LTS
-Deployment Mode	Layer 3
-Network Topology
+- Firewall architecture  
+- Network segmentation  
+- Dynamic Source NAT (PAT)  
+- Security policy enforcement  
+- Traffic monitoring and App-ID validation  
 
-Ubuntu VM → Palo Alto Firewall → Internet
+---
 
-The Ubuntu client resides in the Trust zone and accesses the internet through the firewall’s Untrust interface using dynamic source NAT (PAT). Traffic is routed via a default route (0.0.0.0/0) configured in the virtual router.
+## Lab Environment
 
-Labs Included
+| Component | Details |
+|-----------|----------|
+| Firewall | Palo Alto VM-Series |
+| PAN-OS Version | 11.2.0 |
+| Virtualization Platform | VMware Workstation |
+| Client OS | Ubuntu 24.04 LTS |
+| Deployment Mode | Layer 3 |
 
-Initial Firewall Setup and Management Configuration
+---
 
-Layer 3 Interface Configuration (WAN and LAN)
+## Network Topology
 
-Security Zone Configuration
+Ubuntu VM → Palo Alto Firewall → Internet  
 
-Virtual Router and Static Default Route Configuration
+The Ubuntu client resides in the **Trust** zone and accesses the internet through the firewall’s **Untrust** interface using dynamic Source NAT (PAT). Traffic is routed via a default route (`0.0.0.0/0`) configured in the virtual router.
 
-Source NAT Policy (Dynamic IP and Port)
+---
 
-Security Policy Rule Creation
+## IP Addressing Structure
 
-Connectivity Verification (ICMP Testing)
+| Device | Interface | IP Address | Zone |
+|--------|------------|------------|------|
+| Ubuntu VM | eth0 | 192.168.x.x | Trust |
+| Firewall (LAN) | ethernet1/2 | 192.168.x.x | Trust |
+| Firewall (WAN) | ethernet1/1 | DHCP | Untrust |
+| Management | MGT | 192.168.x.x | Management |
 
-Internet Access Validation
+---
 
-Traffic Log Analysis and App-ID Verification
+## Labs Included
 
-Technical Skills Demonstrated
+- Initial Firewall Setup and Management Configuration  
+- Layer 3 Interface Configuration (WAN and LAN)  
+- Security Zone Configuration  
+- Virtual Router and Static Default Route Configuration  
+- Source NAT Policy (Dynamic IP and Port)  
+- Security Policy Rule Creation  
+- Connectivity Verification (ICMP Testing)  
+- Internet Access Validation  
+- Traffic Log Analysis and App-ID Verification  
 
-Deployment of Palo Alto VM-Series Firewall
+---
 
-Layer 3 interface configuration and zone-based segmentation
+## Technical Skills Demonstrated
 
-Virtual routing and default route implementation
+- Palo Alto VM-Series deployment  
+- Layer 3 interface configuration  
+- Zone-based segmentation  
+- Static routing configuration  
+- Dynamic Source NAT (PAT)  
+- Security policy rule management  
+- App-ID traffic identification  
+- Traffic log validation  
+- End-to-end troubleshooting  
 
-Dynamic Source NAT (PAT) configuration
+---
 
-Security policy rule management
+## Validation Performed
 
-App-ID based traffic identification
+- Verified ICMP connectivity between Ubuntu and firewall  
+- Confirmed outbound internet access via NAT  
+- Validated NAT translation in traffic logs  
+- Confirmed App-ID detection  
+- Verified security rule match and action  
 
-Traffic log analysis and monitoring
+---
 
-End-to-end connectivity troubleshooting
+## Future Enhancements
 
-Future Lab Enhancements
+- Application-based blocking using App-ID  
+- URL Filtering configuration  
+- DoS Protection policy setup  
+- SSL Decryption implementation  
+- Threat Prevention profiles  
+- Zone Protection profiles  
 
-Planned expansions to this lab series include:
+---
 
-Application-based traffic blocking using App-ID
+## Author
 
-URL Filtering implementation
-
-DoS Protection configuration
-
-SSL Decryption setup
-
-Threat Prevention Profile configuration
-
-Zone Protection Profiles
-
-These additions will further simulate enterprise-grade security architecture.
-
-Author
-
-Vishesh Dixit
+**Vishesh Dixit**  
 Network Security Enthusiast | Aspiring Firewall Engineer
